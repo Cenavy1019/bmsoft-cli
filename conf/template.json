@@ -7,7 +7,7 @@
   },
   "vue3": {
     "name": "基于vue3的测试",
-    "value": "vue",
+    "value": "vue3",
     "git": "https://gitee.com/hankin_dream/test-el-table.git",
     "options": []
   }
