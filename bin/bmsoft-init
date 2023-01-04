@@ -189,6 +189,7 @@ function selectTemplate() {
       choices: [new inquirer.Separator("模板类型"), ...choices]
     };
     inquirer.prompt(config).then(data => {
+      console.log('select:', data)
       let { select } = data;
       let { value, git } = templateConfig[select];
       resolve({
