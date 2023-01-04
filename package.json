@@ -3,7 +3,7 @@
   "version": "1.1.2",
   "description": "一套快速生成项目的脚手架",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const program = require('commander')
+import { program } from 'commander'
 
 console.log('version', require('../package').version)
 

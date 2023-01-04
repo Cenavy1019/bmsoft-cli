@@ -1,7 +1,8 @@
-const logSymbols = require('log-symbols');
-const chalk = require('chalk')
+import logSymbols from 'log-symbols';
+import chalk from 'chalk';
 const log = console.log;
-module.exports = {
+
+export default {
   info: (...str) => {
     log(logSymbols.info, chalk.blue(...str))
   },

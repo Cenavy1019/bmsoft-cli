@@ -2,39 +2,39 @@
 
 // NODE moudle
 //  node.js 命令行解决方案
-const program = require("commander");
+import { program } from "commander";
 
 // node.js path模块
-const path = require("path");
+import path from "path";
 
 // node.js fs模块
-const fs = require("fs");
+import fs from 'fs'
 
 // 常见的交互式命令行用户接口的集合
-const inquirer = require('inquirer')
+import inquirer from "inquirer";
 
 // 使用shell模式匹配文件
-const glob = require("glob");
+import { glob } from "glob";
 
 // 活动最新的npm包
-const latestVersion = require("latest-version");
+import latestVersion from "latest-version";
 
 // node.js 子进程
-const spawn = require("child_process").spawn;
+import { spawn } from "child_process";
 
 // node.js 命令行环境的 loading效果， 和显示各种状态的图标
-const ora = require("ora");
+import ora from "ora";
 
 // The UNIX command rm -rf for node.
-const rm = require("rimraf").sync;
+import {sync as rm} from 'rimraf'
 
 // file
-const dowload = require("../lib/download");
-const log = require('../utils/log')
-const generator = require("../lib/generator");
-const CONST = require('../conf/const')
-const templateConfig = require("../conf/template.json");
-const configDefalut = require("../conf/index");
+import download from "../lib/download";
+import log from "../utils/log";
+import generator from "../lib/generator";
+import CONST from "../conf/const";
+import templateConfig from '../conf/template.json'
+import configDefalut from '../conf/index'
 program.usage("<project-name>").parse(process.argv);
 
 // 根据输入，获取项目名称
@@ -42,7 +42,6 @@ let projectName = program.args[0];
 if (!projectName) {
   // 相当于执行命令的--help选项，显示help信息，这是commander内置的一个命令选项
   program.help();
-  return;
 }
 
 // 返回 Node.js 进程的当前工作目录
