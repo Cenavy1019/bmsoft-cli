@@ -1,0 +1,8 @@
+{
+  "uniapp": {
+    "name": "基于uniapp的小程序项目",
+    "value": "uniapp",
+    "git": "https://github.com/Cenavy1019/vue2-uniapp-template.git",
+    "options": []
+  }
+}

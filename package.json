@@ -1,0 +1,45 @@
+{
+  "name": "bmsoft-cli",
+  "version": "1.1.0",
+  "description": "一套快速生成项目的脚手架",
+  "main": "index.js",
+  "scripts": {
+    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "bmsoft": "bin/bmsoft",
+    "bmsoft-init": "bin/bmsoft-init"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "hankin.dream <mm154620@163.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bumpp": "^8.2.1",
+    "chalk": "^5.2.0",
+    "commander": "^9.4.1",
+    "download-git-repo": "^3.0.2",
+    "ejs": "^3.1.8",
+    "git-clone": "^0.2.0",
+    "glob": "^8.0.3",
+    "handlebars": "^4.7.7",
+    "inquirer": "^9.1.4",
+    "latest-version": "^7.0.0",
+    "log-symbols": "^5.1.0",
+    "metalsmith": "^2.5.1",
+    "minimatch": "^5.1.2",
+    "ora": "^6.1.2",
+    "rimraf": "^3.0.2",
+    "wrap-ansi": "^8.0.1"
+  },
+  "homepage": "",
+  "devDependencies": {},
+  "keywords": [
+    "cli",
+    "模板",
+    "构建工具"
+  ]
+}
