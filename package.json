@@ -1,8 +1,9 @@
 {
   "name": "bmsoft-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "一套快速生成项目的脚手架",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
