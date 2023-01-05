@@ -2,12 +2,18 @@
   "uniapp": {
     "name": "基于uniapp的小程序项目",
     "value": "uniapp",
-    "git": "https://github.com/Cenavy1019/vue2-uniapp-template.git",
+    "git": "https://gitee.com/hankin_dream/vue2-uniapp-template.git",
     "options": []
   },
-  "vue3": {
-    "name": "基于vue3的测试",
-    "value": "vue3",
+  "vue3-ts-webpack": {
+    "name": "基于vue3 + ts + webpack的项目",
+    "value": "vue3-ts-webpack",
+    "git": "https://gitee.com/hankin_dream/vue3-ts-webpack-template.git",
+    "options": []
+  },
+  "vue3-ts-vite": {
+    "name": "基于vue3 + ts + vite的简易项目",
+    "value": "vue3-ts-vite",
     "git": "https://gitee.com/hankin_dream/test-el-table.git",
     "options": []
   }
