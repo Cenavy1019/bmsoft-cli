@@ -67,8 +67,10 @@ async function main() {
     let { git } = await selectTemplate();
     // 下载模板
     templateName = await dowload(rootName, git);
+    console.log('templateName: ', templateName);
     // 本地配置
     let customizePrompt = await getCustomizePrompt(templateName, CONST.CUSTOMIZE_PROMPT)
+    console.log('customizePrompt: ', customizePrompt);
     // 渲染本地配置
     await render(projectRoot, templateName, customizePrompt);
     // 删除无用文件
@@ -108,15 +110,15 @@ function updateCli() {
     switch (npmType) {
       case "npm":
         spinner.start();
-        status = spawn("npm.cmd", ["install", "alice-cli", "-g"]);
+        status = spawn("npm.cmd", ["install", "bmsoft-cli", "-g"]);
         break;
       case "cnpm":
         spinner.start();
-        status = spawn("cnpm.cmd", ["install", "alice-cli", "-g"]);
+        status = spawn("cnpm.cmd", ["install", "bmsoft-cli", "-g"]);
         break;
       case "yarn":
         spinner.start();
-        status = spawn("yarn.cmd", ["add", "alice-cli", "-g"]);
+        status = spawn("yarn.cmd", ["add", "bmsoft-cli", "-g"]);
         break;
     }
     status.stdout.on("data", data => {
@@ -215,6 +217,7 @@ function render(projectRoot , templateName, customizePrompt) {
       };
       // 获取默认配置
       const promptArr = configDefalut.getDefaultPrompt(context);
+      console.log('promptArr: ', promptArr);
       // 添加模板自定义配置
       promptArr.push(...customizePrompt);
       let answer = await inquirer.prompt(promptArr);
