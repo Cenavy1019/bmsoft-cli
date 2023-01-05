@@ -67,12 +67,10 @@ async function main() {
     let { git } = await selectTemplate();
     // 下载模板
     templateName = await dowload(rootName, git);
-    console.log('templateName: ', templateName);
     // 本地配置
-    let customizePrompt = await getCustomizePrompt(templateName, CONST.CUSTOMIZE_PROMPT)
-    console.log('customizePrompt: ', customizePrompt);
+    // let customizePrompt = await getCustomizePrompt(templateName, CONST.CUSTOMIZE_PROMPT)
     // 渲染本地配置
-    await render(projectRoot, templateName, customizePrompt);
+    // await render(projectRoot, templateName, customizePrompt);
     // 删除无用文件
     deleteCusomizePrompt(projectRoot)
     // 构建结束
