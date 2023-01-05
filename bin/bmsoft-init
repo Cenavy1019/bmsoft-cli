@@ -68,9 +68,9 @@ async function main() {
     // 下载模板
     templateName = await dowload(rootName, git);
     // 本地配置
-    // let customizePrompt = await getCustomizePrompt(templateName, CONST.CUSTOMIZE_PROMPT)
+    let customizePrompt = await getCustomizePrompt(templateName, CONST.CUSTOMIZE_PROMPT)
     // 渲染本地配置
-    // await render(projectRoot, templateName, customizePrompt);
+    await render(projectRoot, templateName, customizePrompt);
     // 删除无用文件
     deleteCusomizePrompt(projectRoot)
     // 构建结束
