@@ -1,7 +1,7 @@
 {
-  "uniapp": {
-    "name": "基于uniapp的小程序项目",
-    "value": "uniapp",
+  "vue2-uniapp-stable-weapp": {
+    "name": "基于vue2+uniapp2.0.0稳定版的小程序项目",
+    "value": "vue2-uniapp-stable-weapp",
     "git": "https://gitee.com/hankin_dream/vue2-uniapp-template.git",
     "options": []
   },
@@ -11,10 +11,16 @@
     "git": "https://gitee.com/hankin_dream/vue3-ts-webpack-template.git",
     "options": []
   },
-  "vue3-ts-vite": {
-    "name": "基于vue3 + ts + vite的简易项目",
-    "value": "vue3-ts-vite",
+  "vue3-vite": {
+    "name": "基于vue3 + vite的简易项目",
+    "value": "vue3-vite",
     "git": "https://gitee.com/hankin_dream/test-el-table.git",
+    "options": []
+  },
+  "vue2-vant-h5": {
+    "name": "基于vue2 + vant2 + less的移动端项目",
+    "value": "vue2-vant-h5",
+    "git": "https://gitee.com/hankin_dream/vue2-vant-h5-template.git",
     "options": []
   }
 }

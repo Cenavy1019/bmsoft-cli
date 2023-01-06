@@ -21,7 +21,7 @@ module.exports = {
   updateNPMPrompt: [
     {
       type: "list",
-      message: "请选择更新npm的方法",
+      message: "请选择更新cli的方法",
       name: "npmType",
       choices: [
         {

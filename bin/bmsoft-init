@@ -22,6 +22,9 @@ const latestVersion = require("latest-version");
 // node.js 子进程
 const spawn = require("child_process").spawn;
 
+// 获取环境进程
+const process = require('process')
+
 // node.js 命令行环境的 loading效果， 和显示各种状态的图标
 const ora = require("ora");
 
@@ -87,7 +90,7 @@ function checkVersion() {
   return new Promise(async (resolve, reject) => {
     let webVersion = await latestVersion(`${CONST.CLI_NAME}`);
     let localVersion = require("../package.json").version;
-    console.log(`本地版本${localVersion}, 最新版本${webVersion}`);
+    console.log(`本地版本v${localVersion}, 最新版本v${webVersion}`);
     let webVersionArr = webVersion.split(".");
     let localVersionArr = localVersion.split(".");
     let isNew = webVersionArr.some((item, index) => {
@@ -102,21 +105,23 @@ function checkVersion() {
 function updateCli() {
   return new Promise(async resolve => {
     const promptArr = configDefalut.updateNPMPrompt;
+    const win32 = process.platform === 'win32'
     let { npmType } = await inquirer.prompt(promptArr);
+    log.info(`本地版本没更新成功或因没权限导致更新失败, 请手动输入 ${!win32 ? 'sudo' : ''} ${npmType} install bmsoft-cli -g 更新`)
     const spinner = ora(`更新${CONST.CLI_NAME}中`);
     let status;
     switch (npmType) {
       case "npm":
         spinner.start();
-        status = spawn("npm.cmd", ["install", "bmsoft-cli", "-g"]);
+        status = spawn(win32 ? "npm.cmd" : 'npm', ["install", "bmsoft-cli", "-g"]);
         break;
       case "cnpm":
         spinner.start();
-        status = spawn("cnpm.cmd", ["install", "bmsoft-cli", "-g"]);
+        status = spawn(win32 ? "cnpm.cmd" : 'cnpm', ["install", "bmsoft-cli", "-g"]);
         break;
       case "yarn":
         spinner.start();
-        status = spawn("yarn.cmd", ["add", "bmsoft-cli", "-g"]);
+        status = spawn(win32 ? "yarn.cmd" : 'yarn', ["add", "bmsoft-cli", "-g"]);
         break;
     }
     status.stdout.on("data", data => {
@@ -189,7 +194,6 @@ function selectTemplate() {
       choices: [new inquirer.Separator("模板类型"), ...choices]
     };
     inquirer.prompt(config).then(data => {
-      console.log('select:', data)
       let { select } = data;
       let { value, git } = templateConfig[select];
       resolve({
@@ -207,6 +211,7 @@ function selectTemplate() {
  */
 function render(projectRoot , templateName, customizePrompt) {
   return new Promise(async (resolve, reject) => {
+    //  templateName: download-temp
     try {
       let context = {
         name: projectRoot, // 项目文件名
@@ -215,7 +220,6 @@ function render(projectRoot , templateName, customizePrompt) {
       };
       // 获取默认配置
       const promptArr = configDefalut.getDefaultPrompt(context);
-      console.log('promptArr: ', promptArr);
       // 添加模板自定义配置
       promptArr.push(...customizePrompt);
       let answer = await inquirer.prompt(promptArr);
